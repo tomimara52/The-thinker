@@ -58,7 +58,6 @@ public class UserIntegrationTests extends BaseIntegrationTest{
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
 
         DocumentContext documentContext = JsonPath.parse(response.getBody());
-        System.out.println(documentContext);
         String name = documentContext.read("$.name");
         assertThat(name).isEqualTo(user.getName());
     }

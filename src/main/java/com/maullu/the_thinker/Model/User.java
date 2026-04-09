@@ -2,6 +2,8 @@ package com.maullu.the_thinker.Model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "\"user\"")
@@ -10,13 +12,17 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
+    @NotBlank(message = "Name is required")
     private String name;
 
-    @Email
+    @Email(message = "Email must be valid")
+    @NotBlank(message = "Email is required")
     private String email;
 
+    @NotBlank(message = "Password is required")
     private String password;
 
+    @NotNull(message = "Role is required")
     private Role role;
 
     public User(){}

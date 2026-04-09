@@ -18,5 +18,5 @@ CREATE TABLE IF NOT EXISTS idea
     owner_id BIGINT,
     PRIMARY KEY (id),
     FOREIGN KEY (owner_id)
-        REFERENCES "user"(user_id)
+        REFERENCES "user"(user_id) ON DELETE CASCADE
 );

@@ -1,6 +1,8 @@
 package com.maullu.the_thinker.Model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class Idea {
@@ -9,13 +11,16 @@ public class Idea {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "Title is required")
     private String title;
 
     private String description;
 
+    @NotNull(message = "Visibility is required")
     @Enumerated(EnumType.STRING)
     private Visibility visibility;
 
+    @NotNull(message = "Owner ID is required")
     private Long ownerId;
 
     public Idea() {}
